@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+            <title>Quests</title>
+    </head>
+
+    <body>
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <a class="navbar-brand display-4 font-weight-bold" href="#">CA2</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a id="indexButton" class="nav-link" href="../html/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a id="userinfoButton" class="nav-link text-light" href="../html/userinfo.html">All Users Info</a>
+                </li>
+                <li class="nav-item">
+                    <a id='blogButton' class="nav-link text-light" href="../html/blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a id='questButton' class="nav-link text-light" href="../html/quest.html">Quest</a>
+                </li>
+                <li class="nav-item">
+                    <a id='shopButton' class="nav-link text-light" href="../html/shop.html">Shop</a>
+                </li>
+            </ul>
+            <div class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a id="logoutButton" href="#" class="nav-link text-light">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a id="profileButton" href="../html/profile.html" class="nav-link text-light">Profile</a>
+                </li>
+            </div>
+        </div>
+    </nav>
+        
+
+        <main class="py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center">Quests</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div id="questList" class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 p-3">
+                        <div class="card h-100 d-flex flex-column">
+                            <div class="card-body">
+                                <h2 class="card-title">Add New Quest</h2>
+                            </div>
+                            <div class="form-group mt-auto m-3">
+                            <form id="newQuestForm">
+                            <label for="newTaskImage">Image:</label>
+                                <input type="text" class="form-control" id="newTaskImage" required>
+                                <label for="newTaskTitle">Title:</label>
+                                <input type="text" class="form-control" id="newTaskTitle" required>
+                                <label for="newTaskDescription">Description:</label>
+                                <textarea class="form-control" id="newTaskDescription" rows="3" required></textarea>
+                                <label for="newTaskPoints">Points:</label>
+                                <input type="number" class="form-control" id="newTaskPoints" required>
+                                <button type="submit" class="btn btn-primary w-100 mt-2" id="addTaskButton">Add Quest</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+
+        <div class="modal fade" id="questCompletedModal" tabindex="-1" role="dialog" aria-labelledby="questCompletedModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="questCompletedModalLabel">Quest Completed</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: green;">Quest completed successfully</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="questEditModal" tabindex="-1" role="dialog" aria-labelledby="questEditModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="questEditModalLabel">Edit Profile</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="questEditForm">
+                    <div class="form-group">
+                        <label for="questEditImage">Image</label>
+                        <input type="text" class="form-control" id="questEditImage">
+                      </div>
+                    <div class="form-group">
+                      <label for="questEditTitle">Title</label>
+                      <input type="text" class="form-control" id="questEditTitle" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="questEditPoints">Points</label>
+                      <input type="email" class="form-control" id="questEditPoints" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="questEditDescription">Description</label>
+                      <input type="text" class="form-control" id="questEditDescription">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="questEditSubmitbutton">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="questDeleteModal" tabindex="-1" role="dialog" aria-labelledby="questDeleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="questDeleteModalLabel">Delete Quest</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure you want to delete quest?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" style="width: 100%;" class="btn btn-danger" id="questDeleteSubmitButton">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
+
+
+        <footer class="bg-light text-center py-3">
+            <p>Isaac Low</p>
+            <p>image source - https://pixabay.com/</p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="../js/queryCmds.js" type="text/javascript"></script>
+        <script src="../js/getCurrentURL.js" type="text/javascript"></script>
+        <script src="../js/userNavbarToggle.js" type="text/javascript"></script>
+        <script src="../js/questDisplay.js" type="text/javascript"></script>
+    </body>
+
+</html>

@@ -1,0 +1,40 @@
+.hero-tint::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4); /* Black tint */
+    z-index: 1; /* Place the tint in front of the background image */
+}
+
+.jumbotron {
+    height: 100vh; /* This will make the hero section as tall as the viewport */
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.jumbotron, .footer {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-tint {
+    position: relative;
+}
+
+.hero-tint > * {
+    position: relative;
+    z-index: 2; /* Place the content in front of the tint */
+}
+
+.btn {
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
